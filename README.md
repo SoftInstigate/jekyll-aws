@@ -1,4 +1,4 @@
-# Jekyll
+# Jekyll-aws
 
 [![Build Status](https://travis-ci.org/SoftInstigate/jekyll-aws.svg?branch=master)](https://travis-ci.org/SoftInstigate/jekyll-aws)
 
