@@ -1,4 +1,4 @@
-FROM jekyll/builder:stable
+FROM jekyll/builder:4.0
 
 LABEL maintainer="SoftInstigate <info@softinstigate.com>"
 
