@@ -1,0 +1,13 @@
+services:
+  - docker
+script:
+  - docker build -t softinstigate/jekyll .
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      docker login -u="$DOCKER_USER" -p="$DOCKER_PASS";
+      docker push softinstigate/jekyll; 
+    fi
+env:
+  global:
+    - secure: fIygZTN5et/ONHj0fgg/K4MMqzWlvma/6UPTD1uKXeK5aDYnuazs+I7VdwX9n1ZLozunA2klOx5jQMpDgveoOsvazOk/HfiWeOPcj01XTsDhKJQqJ4BNND8qYCUxULakO1hlYf4K01l2FBbNh++j960O4nef1CWnMVr+rc+13c7cVFYhM46IeLv3ioPzDnHY7yEtWdmVpAOHpPSnxOaMzxzOmExYkJlAom7H5MtU1osH0NI7QsUHLmiZHapfLPM/i45K1MD3LYy3Uwet1DvSXD45Kfpw4joijUp3xEPnNjDWkIygLcwx1oUZTGYEyIUXuZjfBLCUXwQgTwPRVjzaZ3mMQ8a8Ruf0cv5uE1DwTSt/hiz/SHtgwSCDjXL9dBw6r0arT7rIgZRmERMlsYvPm21TvSXm8mpKjatI+TLXbhn01EsFyVAstgANp/sCxWhlTDkcG9WENSzrM/RF++VNpWL9wXuFKt9TrgEX5gPAqAjxBkBh7d2xHxcVuasiLbMmeSOxR7Z4gIP1UuOCF4jh0beWVoEE3Um3WXY/RqdO2wLy9WeVtSitwfcUcrBDdvJwzpZG8GJRDRBRr596ygyyxV6+PTDblr10Einq++9EUUg24TZQopNBLrzL4ZCnFdeZwXZMK+tkDjA474GG8Vzp0sxUImJGqKLp2+HhvzUuASM=
+    - secure: MuF+7lokBBjCA1WZiJ6xdWr1Aq6f17IDs5BAMwAzbxbY156o/z1LLsnKYeMnavIYG5C69jNJdJ7Bhc6L0iH9+jWozt0kiqC4GAeFHb5kY6EFisvZ5yqwacp4Ul/swQWDRjVHTUh3KHzbZFdvM+XAkxiteEokmBCq/D5swfXruaxtLbbWtM3wr+0aKwzB3mJJR13v62zHzu8L6IIV4KaRI5VvGSf0N5KW7goZWOgfg+lha0MduQXZU4XRQiELKlqk7xhYPCMGKN0w12HrQVn05FLo/FPdHJEijRL08SGejSm34EkN1uq9TQY4W//7IoPQ1V6QvDn1HXEHBAr9bjmP/+gQM9oMhtch6KDkeo6GqNPKdMHhPHq7+R0QHhKWSeMRvvu8XszLWCGF9AcOOoS/mXTWAfzRMWNQV2b+8Kkm0HGAm0HTEcTwQM+MLsrli2gJIoaTmNFemb6ejVs1z6kM0VlA5ZAJoqeKIc+LeXZZiqSi1rcY/1UCF+L19P8uYDm3vdxqVtcwM3njpxXE01+F5Y1xZyTly7l7/q9SDvy2XQepBq0m6hBH3baamEcKjba8AWbvhLey0CQMJGWFGTz/owM2HClRTKkLp0HIH51muqyL1MiW+Tkp4TEb3KQSt6JsPaTYuKr1uv2Mhu3lq1vX5OQNYjvEELXO4gfi3jkoC+g=
