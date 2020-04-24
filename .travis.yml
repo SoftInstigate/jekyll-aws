@@ -11,4 +11,4 @@ after_success:
     fi
 env:
   global:
-    - RELEASE=2.0.1
+    - RELEASE=2.1.0
